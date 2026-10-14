@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grades Analytics - Login</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="card narrow">
+    <h1>Student Grades Analytics</h1>
+    <form id="login-form">
+      <label>Username <input name="username" required autocomplete="username"></label>
+      <label>Password <input name="password" type="password" required autocomplete="current-password"></label>
+      <button type="submit">Log in</button>
+      <p id="error" class="error"></p>
+    </form>
+    <p class="hint">Demo: <b>akshay</b> (student) or <b>lecturer</b>, password <b>password123</b></p>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

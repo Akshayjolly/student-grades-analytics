@@ -1,0 +1,23 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, Arial, sans-serif; background: #f3f5f9; color: #222; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; background: #1f3b73; color: #fff; }
+main { max-width: 1100px; margin: 20px auto; padding: 0 16px; }
+.card { background: #fff; border-radius: 10px; padding: 16px 20px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.narrow { max-width: 380px; margin: 80px auto; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.wide { grid-column: span 2; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.stat { background: #fff; border-radius: 10px; padding: 12px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.stat b { display: block; font-size: 1.6em; color: #1f3b73; }
+label { display: block; margin: 10px 0; }
+input, select, button { padding: 8px 10px; font-size: 1em; border-radius: 6px; border: 1px solid #bbb; }
+button { background: #1f3b73; color: #fff; border: none; cursor: pointer; }
+form input { width: 100%; }
+.inline { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.inline input { width: auto; }
+.error { color: #b00020; }
+.hint { color: #666; font-size: .9em; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 6px; border-bottom: 1px solid #eee; }
+h2 { font-size: 1.05em; margin-top: 0; }
+@media (max-width: 700px) { .grid { grid-template-columns: 1fr; } .wide { grid-column: auto; } }

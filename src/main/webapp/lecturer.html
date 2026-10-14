@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lecturer Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header><span id="who"></span> <button id="logout">Log out</button></header>
+  <main>
+    <div class="card">
+      <label>Module <select id="module"></select></label>
+    </div>
+    <section class="stats" id="summary"></section>
+    <div class="grid">
+      <div class="card"><h2>Grade distribution</h2><canvas id="distChart"></canvas></div>
+      <div class="card"><h2>Class average by semester</h2><canvas id="trendChart"></canvas></div>
+    </div>
+    <div class="card">
+      <h2>Add a grade</h2>
+      <form id="grade-form" class="inline">
+        <select name="studentId" id="students"></select>
+        <input name="assessment" placeholder="Assessment e.g. CA2" required>
+        <input name="semester" type="number" min="1" value="3" required>
+        <input name="score" type="number" min="0" max="100" step="0.5" placeholder="Score" required>
+        <button type="submit">Save</button>
+        <span id="form-msg"></span>
+      </form>
+    </div>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/lecturer.js"></script>
+</body>
+</html>
