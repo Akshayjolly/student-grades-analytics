@@ -1,0 +1,33 @@
+# MySQL + Tomcat 10. Build the WAR first with `mvn package`, then `docker compose up`.
+# App: http://localhost:8080/
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: grades
+      MYSQL_USER: grades
+      MYSQL_PASSWORD: grades
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ugrades", "-pgrades"]
+      interval: 5s
+      retries: 20
+
+  tomcat:
+    image: tomcat:10.1-jdk17
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/grades
+      DB_USER: grades
+      DB_PASSWORD: grades
+    ports:
+      - "8080:8080"
+    volumes:
+      # deployed as ROOT so the app is served at http://localhost:8080/
+      - ./target/grades.war:/usr/local/tomcat/webapps/ROOT.war:ro
